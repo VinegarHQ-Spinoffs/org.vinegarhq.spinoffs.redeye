@@ -3,5 +3,8 @@
     <style name="Base.Theme.RedEye" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="buttonTint">@color/floatingButtonBackground</item>
+        <item name="buttonIconTint">@color/floatingButtonForeground</item>
     </style>
 </resources>
