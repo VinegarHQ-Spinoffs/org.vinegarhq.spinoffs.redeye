@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Missing Camera Permission!", Toast.LENGTH_SHORT).show();
                     requestPermissions(new String[] {android.Manifest.permission.CAMERA}, 0);
                 } else {
+                    // Jump to camera activity here.
                     Toast.makeText(getApplicationContext(), "not implemented!", Toast.LENGTH_SHORT).show();
                 }
             }
