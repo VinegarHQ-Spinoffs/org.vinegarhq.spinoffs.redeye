@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Missing Camera Permission!", Toast.LENGTH_SHORT).show();
                     requestPermissions(new String[] {android.Manifest.permission.CAMERA}, 0);
                 } else {
-                    // Jump to camera activity here.
+                    // Jump to camera activity here
                     Toast.makeText(getApplicationContext(), "not implemented!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // Open image library for creating document from library
         FloatingActionButton newDocumentImage = (FloatingActionButton) findViewById(R.id.newDocumentImage);
         newDocumentImage.setOnClickListener(new View.OnClickListener() {
+            // Open gallery here.
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "not implemented!", Toast.LENGTH_SHORT).show();
