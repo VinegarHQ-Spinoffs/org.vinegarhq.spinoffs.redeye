@@ -1,5 +1,6 @@
 package org.vinegarhq.redeye;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
                     requestPermissions(new String[] {android.Manifest.permission.CAMERA}, 0);
                 } else {
                     // Jump to camera activity here
-                    Toast.makeText(getApplicationContext(), "not implemented!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, CameraCaptureActivity.class);
+                    startActivity(intent);
+
                 }
             }
         });

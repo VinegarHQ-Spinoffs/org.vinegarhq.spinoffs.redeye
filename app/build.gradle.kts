@@ -32,9 +32,15 @@ android {
 }
 
 dependencies {
-
+    val cameraxver = ("1.3.1")
+    implementation ("androidx.camera:camera-core:${cameraxver}")
+    implementation ("androidx.camera:camera-camera2:${cameraxver}")
+    implementation ("androidx.camera:camera-lifecycle:${cameraxver}")
+    implementation ("androidx.camera:camera-video:${cameraxver}")
+    implementation ("androidx.camera:camera-view:${cameraxver}")
+    implementation ("androidx.camera:camera-extensions:${cameraxver}")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
