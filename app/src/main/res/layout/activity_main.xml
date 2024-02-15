@@ -16,6 +16,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:clickable="true"
+        android:src="@drawable/baseline_photo_camera_24"
         android:contentDescription="@string/newDocumentCameraDescription"
         android:foregroundTint="@color/floatingButtonForeground"
         android:tint="@color/floatingButtonForeground"
@@ -23,7 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/floatingButtonForeground"
-        app:srcCompat="@drawable/baseline_photo_camera_24" />
+        />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -36,10 +37,11 @@
         android:contentDescription="@string/newDocumentImageDescription"
         android:foregroundTint="@color/floatingButtonForeground"
         android:tint="@color/floatingButtonForeground"
+        android:src="@drawable/baseline_image_24"
         app:backgroundTint="@color/floatingButtonBackground"
         app:layout_constraintBottom_toTopOf="@+id/newDocumentCamera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_image_24"
+
         app:tint="@color/floatingButtonForeground" />
 
     <com.google.android.material.appbar.MaterialToolbar

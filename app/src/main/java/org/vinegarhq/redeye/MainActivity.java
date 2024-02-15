@@ -18,34 +18,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Open camera for creating document from camera
-        FloatingActionButton newDocumentCamera = (FloatingActionButton) findViewById(R.id.newDocumentCamera);
-        newDocumentCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
-                    Toast.makeText(getApplicationContext(), "Missing Camera Permission!", Toast.LENGTH_SHORT).show();
-                    requestPermissions(new String[] {android.Manifest.permission.CAMERA}, 0);
-                } else {
-                    // Jump to camera activity here
-                    Intent intent = new Intent(MainActivity.this, CameraCaptureActivity.class);
-                    startActivity(intent);
+        FloatingActionButton newDocumentCamera = findViewById(R.id.newDocumentCamera);
+        newDocumentCamera.setOnClickListener(v -> {
+            if (checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+                Toast.makeText(getApplicationContext(), "Missing Camera Permission!", Toast.LENGTH_SHORT).show();
+                requestPermissions(new String[] {android.Manifest.permission.CAMERA}, 0);
+            } else {
+                // Jump to camera activity here
+                Intent intent = new Intent(MainActivity.this, CameraCaptureActivity.class);
+                startActivity(intent);
 
-                }
             }
         });
 
         // Open image library for creating document from library
-        FloatingActionButton newDocumentImage = (FloatingActionButton) findViewById(R.id.newDocumentImage);
-        newDocumentImage.setOnClickListener(new View.OnClickListener() {
-            // Open gallery here.
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "not implemented!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        FloatingActionButton newDocumentImage = findViewById(R.id.newDocumentImage);
+        // Open gallery here.
+        newDocumentImage.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "not implemented!", Toast.LENGTH_SHORT).show());
     }
 }

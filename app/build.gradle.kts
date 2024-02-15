@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "org.vinegarhq.redeye"
-        minSdk = 27
+        minSdk = 28
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +33,7 @@ android {
 
 dependencies {
     val cameraxver = ("1.3.1")
+    implementation ("com.vanniktech:android-image-cropper:4.5.0")
     implementation ("androidx.camera:camera-core:${cameraxver}")
     implementation ("androidx.camera:camera-camera2:${cameraxver}")
     implementation ("androidx.camera:camera-lifecycle:${cameraxver}")

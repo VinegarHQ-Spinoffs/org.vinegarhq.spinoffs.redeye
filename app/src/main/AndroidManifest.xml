@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera.any" />
 
     <application
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RedEye"
         tools:targetApi="31">
+        <activity
+            android:name=".EditImageActivity"
+            android:exported="false" />
         <activity
             android:name=".CameraCaptureActivity"
             android:exported="false" />

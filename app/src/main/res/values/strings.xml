@@ -2,4 +2,6 @@
     <string name="app_name">RedEye</string>
     <string name="newDocumentImageDescription">Create new PDF from existing image.</string>
     <string name="newDocumentCameraDescription">Create new PDF from camera.</string>
+    <string name="takePictureButton">Take a Picture of the Document</string>
+    <string name="confirmCrop">Confirm your cropping decision</string>
 </resources>

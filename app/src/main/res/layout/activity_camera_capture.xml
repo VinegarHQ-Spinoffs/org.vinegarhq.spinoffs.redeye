@@ -7,6 +7,23 @@
     tools:context=".CameraCaptureActivity">
 
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/confirmEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/takePictureButton"
+        android:src="@drawable/baseline_photo_camera_24"
+        android:foregroundTint="@color/floatingButtonForeground"
+        app:tint="@color/floatingButtonForeground"
+        app:backgroundTint="@color/floatingButtonBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/framelayout"
+        app:layout_constraintEnd_toEndOf="@+id/framelayout"
+        app:layout_constraintStart_toStartOf="@+id/framelayout"
+        app:layout_constraintTop_toTopOf="@+id/framelayout"
+        app:layout_constraintVertical_bias=".95" />
+
+
     <FrameLayout
         android:id="@+id/framelayout"
         android:layout_width="match_parent"
@@ -18,5 +35,7 @@
             android:id="@+id/previewView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
