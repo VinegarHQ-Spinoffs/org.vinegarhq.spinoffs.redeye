@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
+import androidx.camera.core.ImageCaptureException;
 import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
@@ -14,7 +15,9 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.camera.view.PreviewView;
@@ -22,7 +25,11 @@ import androidx.lifecycle.LifecycleOwner;
 
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.Objects;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 public class CameraCaptureActivity extends AppCompatActivity {
@@ -33,12 +40,27 @@ public class CameraCaptureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_capture);
 
+        // Create a temporary file for writing.
+        File cachePath;
+        File imageFile;
+        if (getIntent().getExtras() != null) {
+            cachePath = new File(Objects.requireNonNull(getIntent().getExtras().getString("cachePath")));
+            try {
+              imageFile = File.createTempFile(UUID.randomUUID().toString(), ".png", cachePath);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+
+            }
+        } else {
+            throw new RuntimeException(); // data loss moment
+        }
+
         // Per Android Documentation
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
         cameraProviderFuture.addListener(() -> {
             try {
                 ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
-                bindPreview(cameraProvider);
+                bindPreview(cameraProvider, imageFile, cachePath);
             } catch (ExecutionException | InterruptedException e) {
                 // You shouldn't be able to get here. This is just to make java shut up.
             }
@@ -47,7 +69,7 @@ public class CameraCaptureActivity extends AppCompatActivity {
     }
 
 
-    void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
+    void bindPreview(@NonNull ProcessCameraProvider cameraProvider, File imageFile, File cachePath) {
 
         Preview preview = new Preview.Builder()
                 .build();
@@ -75,19 +97,23 @@ public class CameraCaptureActivity extends AppCompatActivity {
         // Handle takePhoto button pressed
 
         FloatingActionButton takePhoto = findViewById(R.id.confirmEdit);
-        takePhoto.setOnClickListener(v -> imageCapture.takePicture(getMainExecutor(), new ImageCapture.OnImageCapturedCallback()
+
+        ImageCapture.OutputFileOptions fileOptions = new ImageCapture.OutputFileOptions.Builder(imageFile)
+                .build();
+        takePhoto.setOnClickListener(v -> imageCapture.takePicture(fileOptions, getMainExecutor(), new ImageCapture.OnImageSavedCallback()
         {
             @Override
-            public void onCaptureSuccess(@NonNull ImageProxy imageProxy) {
-
-                Bitmap bitmap = imageProxy.toBitmap();
-                ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 50, bs);
-
+            public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                 Intent intent = new Intent(CameraCaptureActivity.this, EditImageActivity.class);
-                intent.putExtra("bitmap", bs.toByteArray());
+                intent.putExtra("imageFile", imageFile.toString());
+                intent.putExtra("cachePath", cachePath.toString());
+                // maybe redundant to convert to string again?
                 startActivity(intent);
+            }
 
+            @Override
+            public void onError(@NonNull ImageCaptureException exception) {
+                throw new RuntimeException();
             }
         }));
     }
