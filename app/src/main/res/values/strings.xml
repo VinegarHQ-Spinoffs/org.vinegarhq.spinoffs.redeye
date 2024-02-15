@@ -4,4 +4,5 @@
     <string name="newDocumentCameraDescription">Create new PDF from camera.</string>
     <string name="takePictureButton">Take a Picture of the Document</string>
     <string name="confirmCrop">Confirm your cropping decision</string>
+    <string name="onionSkinDescription">Onion-skin view of the image.</string>
 </resources>

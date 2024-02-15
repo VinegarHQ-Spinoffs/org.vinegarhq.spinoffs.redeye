@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".EditImageActivity">
 
+    <com.canhub.cropper.CropImageView
+        android:id="@+id/cropimageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.canhub.cropper.CropImageView>
+
+    <ImageView
+        android:id="@+id/onionImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        android:clickable="false"
+        android:contentDescription="@string/onionSkinDescription"
+        app:layout_constraintBottom_toBottomOf="@+id/cropimageView"
+        app:layout_constraintEnd_toEndOf="@+id/cropimageView"
+        app:layout_constraintStart_toStartOf="@+id/cropimageView"
+        app:layout_constraintTop_toTopOf="@+id/cropimageView"
+        app:srcCompat="@drawable/baseline_image_24" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/confirmEdit"
         android:layout_width="wrap_content"
@@ -22,14 +47,16 @@
         app:layout_constraintVertical_bias="0.95"
         app:tint="@color/floatingButtonForeground" />
 
-    <com.canhub.cropper.CropImageView
-        android:id="@+id/cropimageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <SeekBar
+        android:id="@+id/onionBar"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirmEdit"
+        app:layout_constraintEnd_toEndOf="@+id/cropimageView"
+        app:layout_constraintStart_toStartOf="@+id/cropimageView"
+        app:layout_constraintTop_toTopOf="@+id/cropimageView"
+        app:layout_constraintVertical_bias="0.98" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
