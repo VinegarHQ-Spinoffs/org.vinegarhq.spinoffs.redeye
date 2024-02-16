@@ -1,17 +1,11 @@
 package org.vinegarhq.redeye;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.ImageProxy;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.ImageFormat;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.canhub.cropper.CropImageView;
 
@@ -25,8 +19,8 @@ public class EditImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_image);
 
-        Uri imageUri = null;
-        File imageFile = null;
+        Uri imageUri;
+        File imageFile;
         File cachePath = null;
 
         if (getIntent().getExtras()!= null) {

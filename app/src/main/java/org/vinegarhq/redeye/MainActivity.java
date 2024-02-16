@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         // Create cache directory for image storage
         String uniqueId = UUID.randomUUID().toString();
         File cacheDirectory = new File(this.getCacheDir(), uniqueId);
-        cacheDirectory.mkdirs();
+        boolean mkdirs = cacheDirectory.mkdirs();
         Log.d("CameraCaptureActivity", cacheDirectory.getAbsolutePath()); // TODO: Remove this debug code
 
         // Open camera for creating document from camera
