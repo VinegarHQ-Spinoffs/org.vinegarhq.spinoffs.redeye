@@ -97,7 +97,7 @@ public class CameraCaptureActivity extends AppCompatActivity {
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                 Intent intent = new Intent(CameraCaptureActivity.this, EditImageActivity.class);
                 intent.putExtra("imageFile", imageFile.toString());
-                intent.putExtra("cachePath", cachePath.toString());
+                //intent.putExtra("cachePath", cachePath.toString());
                 // maybe redundant to convert to string again?
                 startActivity(intent);
             }

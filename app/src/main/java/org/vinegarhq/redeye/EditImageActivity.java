@@ -28,11 +28,11 @@ public class EditImageActivity extends AppCompatActivity {
         // Receive files from intent.
         Uri imageUri;
         File imageFile;
-        File cachePath = null;
+        //File cachePath = null;
 
         if (getIntent().getExtras()!= null) {
             imageFile = new File(Objects.requireNonNull(getIntent().getStringExtra("imageFile")));
-            cachePath = new File(Objects.requireNonNull(getIntent().getStringExtra("cachePath")));
+            //cachePath = new File(Objects.requireNonNull(getIntent().getStringExtra("cachePath")));
             imageUri = Uri.fromFile(imageFile);
         } else {
             throw new RuntimeException();

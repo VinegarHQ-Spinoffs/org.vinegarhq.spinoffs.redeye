@@ -1,6 +1,5 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android") version "2.0.0-Beta4"
 }
 
 android {
@@ -38,6 +37,7 @@ android {
 dependencies {
     val cameraxver = ("1.3.1")
     implementation ("com.vanniktech:android-image-cropper:4.5.0")
+    implementation("org.bytedeco.javacv-platform:1.5.10")
     implementation ("androidx.camera:camera-core:${cameraxver}")
     implementation ("androidx.camera:camera-camera2:${cameraxver}")
     implementation ("androidx.camera:camera-lifecycle:${cameraxver}")
