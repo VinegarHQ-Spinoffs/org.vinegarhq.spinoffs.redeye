@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".EditImageActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/rotateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="710dp"
+        android:clickable="true"
+        android:contentDescription="@string/ic_rotate_right_24"
+        android:foregroundTint="@color/floatingButtonForeground"
+        android:src="@drawable/baseline_crop_rotate_24"
+        app:backgroundTint="@color/floatingButtonBackground"
+        app:layout_constraintBottom_toTopOf="@+id/confirmEdit"
+        app:layout_constraintEnd_toStartOf="@+id/multiPurposeBar"
+        app:layout_constraintStart_toStartOf="@+id/cropimageView"
+        app:layout_constraintTop_toTopOf="@+id/cropimageView"
+        app:layout_constraintVertical_bias="1.0"
+
+        app:tint="@color/floatingButtonForeground" />
+
     <com.canhub.cropper.CropImageView
         android:id="@+id/cropimageView"
         android:layout_width="match_parent"
@@ -29,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="@+id/cropimageView"
         app:layout_constraintStart_toStartOf="@+id/cropimageView"
         app:layout_constraintTop_toTopOf="@+id/cropimageView"
-        app:srcCompat="@drawable/baseline_image_24" />
+        app:srcCompat="@drawable/baseline_image_24_black" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/confirmEdit"
@@ -48,11 +66,11 @@
         app:tint="@color/floatingButtonForeground" />
 
     <SeekBar
-        android:id="@+id/onionBar"
+        android:id="@+id/multiPurposeBar"
         android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="50dp"
         app:layout_constraintBottom_toTopOf="@+id/confirmEdit"
         app:layout_constraintEnd_toEndOf="@+id/cropimageView"
         app:layout_constraintStart_toStartOf="@+id/cropimageView"
