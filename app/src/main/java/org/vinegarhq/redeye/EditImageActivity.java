@@ -17,7 +17,6 @@ import java.io.File;
 import java.util.Objects;
 
 
-
 public class EditImageActivity extends AppCompatActivity {
 
     @Override
@@ -76,5 +75,8 @@ public class EditImageActivity extends AppCompatActivity {
             }
         });
 
+        void cvDetectImage(){
+
+        }
     }
 }

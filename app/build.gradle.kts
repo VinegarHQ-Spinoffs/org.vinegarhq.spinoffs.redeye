@@ -35,9 +35,12 @@ android {
 }
 
 dependencies {
-    val cameraxver = ("1.3.1")
+    val cameraxver = ("1.3.2")
     implementation ("com.vanniktech:android-image-cropper:4.5.0")
-    implementation("org.bytedeco.javacv-platform:1.5.10")
+    // https://mvnrepository.com/artifact/org.bytedeco/javacv
+    implementation("org.bytedeco:javacv:1.5.9")
+
+
     implementation ("androidx.camera:camera-core:${cameraxver}")
     implementation ("androidx.camera:camera-camera2:${cameraxver}")
     implementation ("androidx.camera:camera-lifecycle:${cameraxver}")
